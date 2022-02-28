@@ -1,6 +1,6 @@
-# Mamikos-Automation-Behave-Selenium
+# Flip-Automation-Behave-Selenium
 
-BDD framework built using Python and Behave to support automation testing of websites on various browsers. This project tries to automate simple booking room flow on [Mamikos](mamikos) site.
+BDD framework built using Python and Behave to support automation testing of websites on various browsers. This project tries to automate simple open link menu flow on [Flip.id](flip.id) site.
 
 ## Built with
 
@@ -17,10 +17,10 @@ BDD framework built using Python and Behave to support automation testing of web
 You can get a copy of all files used in this tutorial by cloning this repository!
 
 ```shell
-git clone https://github.com/manami27/Mamikos-Automation-Behave-Selenium.git
+git clone https://github.com/manami27/Flip-Engineer-Test.git
 ```
 ```shell
-cd Mamikos-Automation-Behave-Selenium
+cd Flip-Engineer-Test
 ```
 
 ### Installations
@@ -53,10 +53,10 @@ To automate the test, you need to install required component:
 Running the tests
 ----------------
 * To run the test with allure report
-```behave -f allure_behave.formatter:AllureFormatter -o reports/ features/mamikosbookingroomwithlogin.feature```
+```behave -f allure_behave.formatter:AllureFormatter -o reports/ features/flipmenu.feature```
 
 * To run the test without allure report
-```behave features/login.feature```
+```behave features/flipmenu.feature```
 
 * To generate the html allure report from the json files inside reports folder**
 ```allure serve reports/```
@@ -67,21 +67,23 @@ Scenario on the feature file
 
 ```gherkin
 
-    # Mamikos-Automation-Behave-Selenium/features/mamikosbookingroomwithlogin.feature
+    # Flip-Engineer-test/features/flipmenu.feature
 
-    Feature: Mamikos Booking Room with Login Previously
-    As a registered user
-    I should be able to book room 
-    Scenario: Login to Mamikos Website with valid parameters
+    Feature: Open flip menu feature
+    Background: common steps
         Given launch chrome browser
-        When open Mamikos homepage
-        And click on Masuk button
-        And click on Pencari Kos button
-        And Enter nohp "085100733977" and password "mamikos12345"
-        And click on Login button
-        And open room detail page
-        And select mulai kos and cara bayar
-        And click on Ajukan Sewa button
-        And next to booking summary page
-        Then booking success confirmation
+        When open flip landing page
+        When verify success open landing page
+
+    Scenario: Open login page
+        When navigate to masuk menu
+        Then verify success open login page
+
+    Scenario: Open produk page
+        When navigate to produk menu
+        Then verify success open layanan flip page
+
+    Scenario: Open karir page
+        When navigate to karir menu
+        Then verify success open karir page
  ```
